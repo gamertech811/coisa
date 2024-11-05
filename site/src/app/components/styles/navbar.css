@@ -1,0 +1,43 @@
+gridnav{
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    background: rgb(2,168,146);
+    background: linear-gradient(90deg, rgba(2,168,146,1) 0%, rgba(228,0,227,1) 92%);
+    padding: 25px 20px;
+}
+    nav{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+}
+    .hj{
+    margin: 0;
+    color: white;
+}
+    a{text-decoration: none;}
+    nav > a{
+    text-decoration: none;
+    color: rgb(199, 199, 199);
+    margin: 0 20px;
+    font-size: 1.2rem;
+    position: relative;
+}
+nav > a::after{
+    content: "";
+    height: 2px;
+    border-radius: 100%;
+    background-color: white;
+    width: 0;
+    position: absolute;
+    display: block;
+    bottom: 0;
+    left: 0;
+    transition: width 0.3s;
+}
+nav > a:hover::after{
+    width: 100%;
+}
+nav > a:hover{
+    color: white;
+}
