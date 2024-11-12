@@ -7,7 +7,7 @@ body{
 *{font-family: "Poppins", sans-serif;}
 /* #cor{background: #363636;height: 100vh;} */
 
-.center{
+.cente{
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -140,6 +140,16 @@ body{
     background-color: #7a2a9e;
     scale: 1.08;
     box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+#editar{
+    color: black;
+    font-size: 1rem;
+    font-weight: bold;
+    right: 0;
+    bottom: 0;
+    position: fixed;
+    margin: 0 15px 15px 0;
 }
 
 #btnpost:active {

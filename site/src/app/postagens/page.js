@@ -8,7 +8,7 @@ export default async function Home() {
         <div>
             <h1 className='titpost' id='padtit'>Lista de postagens</h1>
             {postagens.map(postagem => (
-                <div className='center' key={postagem.id}>
+                <div className='cente' key={postagem.id}>
                     <h1>{postagem.titulo}</h1>
                     <a className='btnver' href={`/postagens/${postagem.id}`}>Ver postagem</a>
                 </div>

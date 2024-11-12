@@ -5,13 +5,13 @@ export async function getPostagem(id)  {
     ();
     let rows;
     if (id !== undefined)  {
-        [rows] = await connection.execute('SELECT * FROM postagem WHERE id = ?',  [id]);
-       await connection;end();
-       return rows.length > 0  ? rows[0] : null;
-        } else {
-            [rows] = await connection.execute('SELECT *  FROM postagem');
-    await connection.end();
-    return rows;
+      [rows] = await connection.execute('SELECT * FROM postagem WHERE id = ?',  [id]);
+      await connection.end();
+      return rows.length > 0  ? rows[0] : null;
+    } else {
+      [rows] = await connection.execute('SELECT *  FROM postagem');
+      await connection.end();
+      return rows;
     }
 }
 

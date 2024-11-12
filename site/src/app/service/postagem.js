@@ -1,8 +1,7 @@
 export async function getPostagem(id) {
     let request;
     if(id!==undefined){
-        request = await
-fetch(`http://localhost:3001/api/postagem/${id}`);
+        request = await fetch(`http://localhost:3000/api/postagem/${id}`);
         const postagem = await request.json();
         if(postagem.status === 500){
             return null;
@@ -14,8 +13,7 @@ fetch(`http://localhost:3001/api/postagem/${id}`);
             },
         };
     } else {
-        request = await
-fetch(`http://localhost:3001/api/postagem`);
+        request = await fetch(`http://localhost:3000/api/postagem`);
         const postagem = await request.json();
         return {
             body :{
@@ -28,6 +26,6 @@ fetch(`http://localhost:3001/api/postagem`);
 
 export async function postPostagem(postagem) {
   try {
-    await fetch('http://localhost:3001/api/postagem', {method: 'POST', headers: {'Content-Type': 'application/json',},body: JSON.stringify(postagem),mode: 'no-cors'});
+    await fetch('http://localhost:3000/api/postagem', {method: 'POST', headers: {'Content-Type': 'application/json',},body: JSON.stringify(postagem),mode: 'no-cors'});
   } catch (error) {}
 }
