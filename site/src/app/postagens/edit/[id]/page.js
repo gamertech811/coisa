@@ -1,5 +1,6 @@
 import { FormularioEditarPostagem } from "@/components/form";
 import {getPostagem} from "@/service/postagem";
+import {ExcluirPostagem} from "@/components/form"
 
 export default async function Home({params}) {
     const {id} = await params;
@@ -7,9 +8,10 @@ export default async function Home({params}) {
     if(response!=null){
         const postagem = response.body.postagem;
         return (
-            <div>
-                <h1>Nova Postagem</h1>
+            <div className="cente">
+                <h1>Editar Postagem</h1>
                 <FormularioEditarPostagem postagem={postagem}/>
+                <ExcluirPostagem id={postagem.id}/>
             </div>
 );
 }

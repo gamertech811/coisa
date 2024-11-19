@@ -1,9 +1,9 @@
 "use client";
-
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { postPostagem } from '@/service/postagem';
+import { postPostagem, deletePostagem } from '@/service/postagem';
 import "@/components/styles/body.css"
+
 
 export default function FormularioPostagem() {
     const [titulo, setTitulo] = useState('');
@@ -56,15 +56,32 @@ export function FormularioEditarPostagem({postagem}) {
 return (
     <form onSubmit={handleSubmit} className='cente'>
         <div>
-            <label htmlFor="titulo">Título:</label>
-            <p>{postagem.titulo}</p>
+            <label className='titcoisa2' htmlFor="titulo">Título: {postagem.titulo}</label>
+
         </div>
         <div>
-            <label htmlFor="descricao">Descrição:</label>
-            <textarea id="descricao" value={descricao} onChange={(e) => setDescricao(e.target.value)} required />
+            <label className='titcoisa'  htmlFor="descricao">Descrição:</label>
+            <input className="ezwin" value={descricao} onChange={(e) => setDescricao(e.target.value)} required />
         </div>
-        <button className='btnver' type="submit">Salvar</button>
+        <button className='arrumado' type="submit">Salvar</button>
         <p>{message}</p>
     </form>
 );
+};
+export function ExcluirPostagem({id}) {
+    const router = useRouter();
+    const handleClick = async (e) => {
+        e.preventDefault();
+        try {
+            await deletePostagem(id);
+            router.push('/postagens');
+        } catch (error) {
+            
+        }
+    };
+    return (
+        <button className='vaisefodercssbugado' onClick={handleClick}>
+            Apagar Postagem
+        </button>
+    );
 };

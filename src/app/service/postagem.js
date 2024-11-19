@@ -27,3 +27,15 @@ export async function postPostagem(postagem) {
       await connection.query('INSERT INTO postagem (titulo, descricao) VALUES(?, ?)',[postagem.titulo, postagem.descricao]);
     }
 }
+
+export async function deletePostagem(id) {
+  const connection = await getConnection();
+  try {
+    await connection.execute('DELETE FROM postagem WHERE id = ?', [id]);
+    return true;
+  } catch (error) {
+    return false;
+  } finally {
+    await connection.end();
+  }
+}
