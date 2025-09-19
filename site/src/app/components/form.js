@@ -1,7 +1,7 @@
 "use client";
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { postPostagem, deletePostagem } from '@/service/postagem';
+import { postPostagem, deletePostagem } from '@/service/produtos';
 import "@/components/styles/body.css"
 
 
@@ -12,12 +12,12 @@ export default function FormularioPostagem() {
     const router = useRouter();
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const postagem = {
+        const produtos = {
             titulo,
             descricao,
         };
         try {
-            await postPostagem(postagem);
+            await postPostagem(produtos);
             router.push('/postagens');
         } catch (error) {
             setMessage(error.message);
@@ -34,20 +34,20 @@ export default function FormularioPostagem() {
             );
             };
 
-export function FormularioEditarPostagem({postagem}) {
+export function FormularioEditarPostagem({produtos}) {
     const [descricao, setDescricao] =
-    useState(postagem.descricao);
+    useState(produtos.descricao);
     const [message, setMessage] = useState('');
     const router = useRouter();
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const postagemEditada = {
-            id: postagem.id,
-            titulo: postagem.titulo,
+        const produtosEditada = {
+            id: produtos.id,
+            titulo: produtos.titulo,
             descricao,
         };
     try {
-        await postPostagem(postagemEditada);
+        await postPostagem(produtosEditada);
         router.push('/postagens');
     } catch (error) {
         setMessage(error.message);
@@ -56,7 +56,7 @@ export function FormularioEditarPostagem({postagem}) {
 return (
     <form onSubmit={handleSubmit} className='cente'>
         <div>
-            <label className='titcoisa2' htmlFor="titulo">Título: {postagem.titulo}</label>
+            <label className='titcoisa2' htmlFor="titulo">Título: {produtos.titulo}</label>
 
         </div>
         <div>
